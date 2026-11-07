@@ -4,20 +4,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="theme-color" content="#f8edf0">
     <meta name="description" content="Um pequeno jardim de palavras, carinho e lembranças.">
-
     <title>Jardim Secreto</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --rosa: #d99aaa;
+    --rosa-claro: #f8edf0;
+    --creme: #fffaf5;
+    --vinho: #80505f;
+    --verde: #879b83;
+    --texto: #55434a;
+}
 
-    <link rel="stylesheet" href="style.css">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--creme);
+    color: var(--texto);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* CABEÇALHO */
+
+.topo {
+    width: 100%;
+    min-height: 70px;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 250, 245, 0.95);
+}
+
+.logo {
+    color: var(--vinho);
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.topo nav {
+    display: flex;
+    gap: 25px;
+}
+
+.topo nav a {
+    color: var(--texto);
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.topo nav a:hover {
+    color: var(--rosa);
+}
+
+/* INÍCIO */
+
+.hero {
+    min-height: 85vh;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background:
+        linear-gradient(
+            rgba(248, 237, 240, 0.78),
+            rgba(255, 250, 245, 0.9)
+        ),
+        url("assets/flores/fundo.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.subtitulo,
+.etiqueta {
+    color: var(--verde);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 10px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 7vw, 76px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 25px 0;
+}
+
+.hero h1 em {
+    color: var(--vinho);
+}
+
+.hero p {
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.botao {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 15px 30px;
+    border: 1px solid var(--rosa);
+    border-radius: 40px;
+    color: var(--vinho);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: var(--rosa);
+    color: white;
+}
+
+.flor-decorativa {
+    position: absolute;
+    right: 8%;
+    bottom: 8%;
+    font-size: 65px;
+    color: var(--rosa);
+    opacity: 0.5;
+}
+
+/* MENSAGEM */
+
+.mensagem {
+    padding: 110px 10%;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+.mensagem h2,
+.jardim h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 400;
+    margin: 25px 0;
+    color: var(--vinho);
+}
+
+.mensagem p {
+    font-size: 14px;
+    line-height: 2.2;
+    margin-bottom: 20px;
+}
+
+.mensagem .assinatura {
+    font-family: 'Great Vibes', cursive;
+    color: var(--vinho);
+    font-size: 28px;
+    margin-top: 35px;
+}
+
+/* JARDIM */
+
+.jardim {
+    background: var(--rosa-claro);
+    padding: 90px 8%;
+    text-align: center;
+}
+
+.flores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.flor-card {
+    background: var(--creme);
+    padding: 35px 20px;
+    border-radius: 100px 100px 20px 20px;
+    transition: transform 0.3s;
+}
+
+.flor-card:hover {
+    transform: translateY(-8px);
+}
+
+.flor-card span {
+    font-size: 40px;
+}
+
+.flor-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    margin: 15px 0;
+    color: var(--vinho);
+}
+
+.flor-card p {
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* RODAPÉ */
+
+footer {
+    padding: 40px 15px;
+    text-align: center;
+    background: var(--vinho);
+    color: white;
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px) {
+
+    .topo {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 10px;
+    }
+
+    .topo nav {
+        width: 100%;
+        justify-content: center;
+        gap: 17px;
+    }
+
+    .topo nav a {
+        font-size: 10px;
+    }
+
+    .hero {
+        min-height: 78vh;
+        padding: 65px 22px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero p {
+        font-size: 12px;
+    }
+
+    .flor-decorativa {
+        right: 15px;
+        bottom: 15px;
+        font-size: 40px;
+    }
+
+    .mensagem {
+        padding: 75px 25px;
+    }
+
+    .mensagem p {
+        font-size: 13px;
+    }
+
+    .jardim {
+        padding: 75px 20px;
+    }
+
+    .flores {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .flor-card {
+        max-width: 320px;
+        width: 100%;
+        margin: auto;
+        border-radius: 70px 70px 20px 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+    }
+        
+    </style>
 </head>
-
 <body>
 
     <header class="topo">
