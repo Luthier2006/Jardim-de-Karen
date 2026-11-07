@@ -412,7 +412,36 @@ footer {
         <p>Que nunca faltem flores pelo caminho. ✿</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Navegação suave entre as seções
+    const links = document.querySelectorAll(
+        '.topo nav a, .botao'
+    );
+
+    links.forEach(link => {
+        link.addEventListener("click", event => {
+            const destino = link.getAttribute("href");
+
+            if (destino && destino.startsWith("#")) {
+                const secao = document.querySelector(destino);
+
+                if (secao) {
+                    event.preventDefault();
+
+                    secao.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+            }
+        });
+    });
+
+});
+        
+    </script>
 
 </body>
 </html>
